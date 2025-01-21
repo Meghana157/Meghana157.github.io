@@ -1,0 +1,976 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Home Section Styling */
+.home-section {
+    background-color: #0a0f3a; /* Dark navy-blue background */
+    color: #f9f9f9;
+    min-height: 100vh !important; /* Adjust to desired height, e.g., 100vh for full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #000;
+    height: 200vh !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header Styles - Fixed Navbar */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the header */
+    border-bottom: 1px solid #ddd;
+    position: fixed; /* Fix the navbar to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the navbar span the full width */
+    z-index: 1000; /* Ensure it appears above other content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000 !important; /* Black text for the title */
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list .nav-link {
+    color: #000000 !important; /* Black text for navigation links */
+    text-decoration: none;
+    margin: 0 20px; /* Add some spacing between links */
+    font-size: 2.5rem; /* Increase font size for links */
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.nav-list .nav-link:hover {
+    text-decoration: underline;
+    color: #888888; /* Grey hover effect for links */
+}
+
+/* Add padding to the body to prevent content from being hidden under the fixed navbar */
+body {
+    padding-top: 80px; /* Adjust this value to match the height of your navbar */
+}
+@media screen and (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .header-title {
+        font-size: 1.2rem;
+    }
+    .nav-list {
+        display: none; /* Hide the navigation links by default */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Position the menu below the header */
+        right: 0;
+        background-color: white;
+        width: 100%;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list .nav-link {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        margin: 0;
+    }
+
+    .nav-list.active {
+        display: flex; /* Show the navigation links when active */
+    }
+
+    .nav-toggle {
+        display: block; /* Show the hamburger menu */
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #000;
+        margin: 5px 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .header-title {
+        font-size: 1rem;
+    }
+
+    .nav-list .nav-link {
+        font-size: 1.5rem;
+    }
+}
+
+/* Main Content Section */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 30px;
+
+}
+
+/* Left Section */
+.left-section img {
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Right Section */
+.right-section {
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Initial state of text (hidden and slightly shifted) */
+.right-section > * {
+    opacity: 0;
+    transform: translateX(50px); /* Start slightly to the right */
+    transition: all 0.8s ease-out; /* Smooth animation */
+}
+
+/* Slide-in animation */
+.right-section > *.slide-in {
+    opacity: 1;
+    transform: translateX(0); /* Return to original position */
+}
+
+
+.intro {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.title {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-btn:hover {
+    background-color: #000;
+    transform: scale(1.1);
+}
+
+.social-btn:hover img {
+    filter: invert(1);
+}
+
+
+/* Header */
+.header-title {
+    font-size: 1.5rem;
+    /*font-weight: bold;*/
+    color: white;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list .nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    position: relative;
+}
+
+.nav-list .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Enhancements */
+.text-content {
+    max-width: 400px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* Intro Text Hover Effect */
+.intro-text {
+    font-size: 1.25rem;
+    color: #b3b3b3;
+    transition: color 0.3s ease;
+}
+
+.intro-text:hover {
+    color: #007bff; /* Blue color on hover */
+}
+
+/* Name Text Smooth Transition */
+.name-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.name-text:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    color: #007bff; /* Highlight color */
+}
+
+/* Role Text Animation */
+.role-text {
+    font-size: 1.25rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+/* Highlight Smooth Transition */
+.highlight {
+    color: #007bff; /* Blue color */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.highlight:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Description Text Animation */
+.description-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in-out 0.7s forwards;
+}
+
+/* Download Button Transition */
+.download-btn {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: white;
+    color: #007bff;
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Content Enhancements */
+.image-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Personal Photo Hover Effect */
+.personal-photo .photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateX(-50px); /* Shifted to the left */
+    transition: all 0.8s ease-out;
+}
+
+.personal-photo .photo:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Slide-in Animation */
+.personal-photo .photo.slide-in {
+    opacity: 1;
+    transform: translateX(0); /* Moves to its original position */
+}
+
+
+/* Keyframes for Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* About Section */
+.about-section {
+    background-color: #f9f9f9; /* Light background color for the section */
+    padding: 60px 0;
+    opacity: 0; /* Initially hide the section */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    animation: slideIn 1s forwards; /* Add space around the section */
+}
+/* Slide-In Animation */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%); /* Start off-screen */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at normal position */
+    }
+}
+.about-section {
+    animation-delay: 0.5s; /* Delay to make the effect more smooth */
+}
+
+.about-section.slide-in {
+    transform: translateX(0); /* Move the section into view */
+    opacity: 1; /* Fade the section in */
+}
+/* Education Box Styling */
+.education-box {
+    background-color: #030359;
+    color: white;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for the box */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Limit the width of the box */
+    margin: 0 auto; /* Center the box */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for modern look */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Education Box */
+.education-box:hover {
+    background-color: #1a1a6e; /* Slightly lighter blue */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Education Box Styling */
+.education-box {
+    background-color: black; /* Initial dark blue background */
+    color: white;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for the box */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Limit the width of the box */
+    margin: 0 auto; /* Center the box */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for modern look */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Education Box */
+.education-box:hover {
+    background-color: white; /* Change background to white */
+    color: black; /* Change text color to dark blue */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Education Title Styling */
+.education-title {
+    font-size: 2rem;
+    color: #007bff; /* Yellow color for the "Education" text */
+    margin-bottom: 10px; /* Space between title and content */
+    transition: color 0.3s ease-in-out; /* Smooth transition for title color */
+}
+
+/* Hover Effect for Education Title */
+.education-box:hover .education-title {
+    color: #007bff; /* Keep yellow color for title on hover */
+}
+
+/* Education Content Styling */
+.education-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px; /* Space between lines of text */
+    transition: color 0.3s ease-in-out; /* Smooth transition for text color */
+}
+
+/* Hover Effect for Education Text */
+.education-box:hover .education-text {
+    color: black; /* Dark blue color for text on hover */
+}
+
+
+/* Experience Section */
+.experience-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: black;
+}
+
+.timeline-entry {
+    display: flex;
+    margin-bottom: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow flex items to wrap in small screen */
+}
+
+.marker {
+    width: 12px;
+    height: 12px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: relative;
+    left: 14px;
+    flex-shrink: 0;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* Experience Card */
+.card {
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-left: 40px;
+    max-width: 600px;
+    flex-grow: 1;
+    color: white; /* Set the text color to white */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Experience Card Hover Effect */
+.card:hover {
+    background-color: white; /* Change background to white */
+    color: black; /* Change text color to black on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Card Text Styling */
+.date-range {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.job-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: white;
+    line-height: 1.6;
+}
+
+/* On Hover, Change Text Color to Black for Description and Title */
+.card:hover .job-title,
+.card:hover .description {
+    color: black; /* Text color turns black on hover */
+}
+
+/* Optional: Change the color of the link if present */
+.card:hover a {
+    color: black;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .timeline {
+        max-width: 100%;
+        padding-left: 0;
+    }
+
+    .timeline::before {
+        left: 10px; /* Adjust line position for smaller screens */
+    }
+
+    .timeline-entry {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px; /* Reduce margin for small screens */
+    }
+
+    .marker {
+        left: 0; /* Align marker with the card */
+        margin-bottom: 10px; /* Space out marker from the card */
+        width: 10px; /* Adjust marker size for smaller screens */
+        height: 10px;
+    }
+
+    .card {
+        margin-left: 0;
+        max-width: 100%;
+        margin-bottom: 20px; /* Add space between cards */
+    }
+
+    .date-range {
+        font-size: 0.9rem;
+    }
+
+    .job-title {
+        font-size: 1rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .timeline-entry {
+        margin-bottom: 15px; /* Tighter spacing for very small screens */
+    }
+
+    .marker {
+        width: 8px; /* Further reduce marker size */
+        height: 8px;
+    }
+
+    .card {
+        padding: 15px;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .date-range {
+        font-size: 0.85rem;
+    }
+
+    .job-title {
+        font-size: 1rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+    }
+}
+
+
+.skills-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInFromLeft 0.8s ease-in-out forwards;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Heading Styling */
+.skills-heading .subheading {
+    font-size: 1.5rem;
+    color: #000000; /* Muted gray for subheading */
+    margin-bottom: 10px;
+}
+
+.skills-heading .main-title {
+    font-size: 2.5rem;
+    font-weight: bold !important;
+    color: black;
+    margin-bottom: 40px;
+}
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+     /* Space between buttons */
+}
+
+/* Skill Button Styling */
+.skill-button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-button.default {
+    background-color: white;
+    color: black;
+}
+
+/* Hover Effects */
+.skill-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-color: #007bff; /* Highlight border on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        gap: 10px; /* Adjust spacing for smaller screens */
+    }
+}
+
+
+/* General Section Styling */
+#projects {
+    background-color: #f9f9f9;
+  }
+  
+
+  /* Card Styling */
+  .custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Card Image */
+  .custom-card img {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* Project Title */
+  .custom-card .card-title {
+    color: gray;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .custom-card .card-title:hover {
+    color: #007bff;
+  }
+
+  /* Buttons */
+  .custom-btn {
+    transition: background-color 0.3s ease, color 0.3s ease-in-out;
+    margin-right: 0.5rem;
+  }
+
+  .custom-btn.btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .custom-btn.btn-primary:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+
+  .custom-btn.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  .custom-btn.btn-secondary:hover {
+    background-color: #5a6268;
+    color: white;
+  }
+
+  /* Heading Styling */
+  #projects h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+
+
+   /* Certificates Section Styling */
+.certificates-section {
+    background-color: #f9f9f9; /* Light background */
+    padding: 60px 0;
+}
+
+.certificates-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.certificate-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.certificate-card:hover .certificate-img {
+    transform: scale(1.05);
+}
+
+.certificate-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Pink Button for Social Media Icons */
+/* Contact Me Section */
+#contact {
+    background-color: #f9f9f9 !important; /* Updated background color */
+    color: black !important; /* Adjusted text color for better contrast */
+    padding: 50px 0;
+}
+
+#contact a {
+    color: black; 
+    text-decoration-line: underline;
+    /* Ensure links are visible on the light background */
+}
+/*#contact .text-white p {
+    color: #fefefe;  
+} */
+
+#contact .text-white i {
+    color: white; /* Keep the icons white */
+}
+
+
+#contact a:hover {
+    color: #aba9a9; /* Slight color change on hover for links */
+}
+
+#contact .btn-pink {
+    background-color: #fefefe;
+    border: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#contact .btn-pink:hover {
+    background-color: #dabdc7;
+}
+
+
+/* Ensures the icons stack on small screens */
+@media (max-width: 767px) {
+    .row {
+        text-align: center;
+    }
+
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certificate-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .certificates-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        margin-bottom: 30px;
+    }
+
+    .image-content {
+        margin-top: 0;
+    }
+
+    .timeline {
+        padding-left: 40px;
+    }
+
+    .timeline-entry {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .card {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .marker {
+        left: 4px;
+    }
+}
+
